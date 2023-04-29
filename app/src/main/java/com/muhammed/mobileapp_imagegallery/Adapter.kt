@@ -35,9 +35,9 @@ class Adapter:BaseAdapter {
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val view=layoutInflater.inflate(R.layout.categorylineview, null)
-        val twHead=view.findViewById<TextView>(R.id.twCategory)
-        twHead.text=categories!![position].head
+        val view= layoutInflater?.inflate(R.layout.categorylineview, null)
+        val twHead= view?.findViewById<TextView>(R.id.twCategory)
+        twHead!!.text=categories!![position].head
         return view
     }
 }
