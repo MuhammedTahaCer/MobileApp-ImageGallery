@@ -1,6 +1,7 @@
 package com.muhammed.mobileapp_imagegallery
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,5 +47,14 @@ class Adapter:BaseAdapter {
         //Glide ekledikten sonra
         twHead!!.text=categories!![position].head
         return v
+
+
+        v.setOnClickListener{
+            val intent=Intent(v.context,ImgsActivity::class.java)
+            intent.putExtra("başlık", categories!!.get(position).head) //diğer activitye intent ile data taşıma(putExtra komutu)
+            intent.putExtra("Kategori ID",categories!!.get(position).id)//diğer activitye intent ile data taşıma(putExtra komutu)
+            //startActivity içinde intenti gönderebiliriz artık. Ancak burası bir startact. değil.  o halde:
+            v.context.startActivity(intent)
+        }
     }
 }
