@@ -4,3 +4,7 @@ plugins {
     id 'com.android.library' version '8.0.0' apply false
     id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
 }
+/*https://github.com/bumptech/glide
+* Glide kütüphanesi:
+* **Settings.gradle 'a mavenCentral() kodu eklenip sync edilir
+* **Build.gradle(Module) 'a implement kodu eklenir ve sync edilir. Artık Glide ile internetten veya cihaz üzerindeki herhangi contenti açmaya yarıyacak önbellek işlemleridir.*/

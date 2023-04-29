@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 
 class Adapter:BaseAdapter {
 
@@ -35,8 +37,13 @@ class Adapter:BaseAdapter {
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val view= layoutInflater?.inflate(R.layout.categorylineview, null)
-        val twHead= view?.findViewById<TextView>(R.id.twCategory)
+        val view= layoutInflater!!.inflate(R.layout.categorylineview, null)
+        val twHead= view.findViewById<TextView>(R.id.twCategory)
+        //Glide ekledikten sonra
+            val ivImages=view.findViewById<ImageView>(R.id.imgCategory)
+            //glide usages exm : Glide.with(this).load("https://goo.gl/gEgYUd").into(imageView);
+            Glide.with(view.context).load(categories!!.get(position).imgUrl).into(ivImages);//Activity sınıfı içinde olmadığımız için this ifadesini kabul etmiyor. O halde konumunu tvermeli
+        //Glide ekledikten sonra
         twHead!!.text=categories!![position].head
         return view
     }
